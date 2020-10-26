@@ -14,8 +14,17 @@ import NotFound from './Pages/NotFound'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Nav, NavLink } from 'reactstrap'
 
+import MockApts from './mockApartments'
+
 
 export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      apartments: MockApts
+    }
+  }
+
   render() {
     const {
       logged_in,

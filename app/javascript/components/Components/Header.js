@@ -13,7 +13,7 @@ export default class Header extends Component{
         } = this.props
         return(
             <div id="header">
-                <h3>ApartmentSeekr</h3>
+                <h3 className="title">ApartmentSeeker</h3>
                 <Nav>
                     <NavItem>
                         <a href="/">Home</a>
@@ -22,9 +22,14 @@ export default class Header extends Component{
                         <a href="/apartmentindex">All Apartments</a>
                     </NavItem>
                     { logged_in &&
-                        <NavItem>
-                            <a href={sign_out_route}>Sign Out</a>
-                        </NavItem>
+                        <>
+                            <NavItem>
+                                <a href="/apartmentnew">Create a New Listing</a>
+                            </NavItem>
+                            <NavItem>
+                                <a href={sign_out_route}>Sign Out</a>
+                            </NavItem>
+                        </>
                     }
                     { !logged_in &&
                         <>

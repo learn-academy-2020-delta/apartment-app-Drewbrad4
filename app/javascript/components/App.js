@@ -12,7 +12,7 @@ import Home from './Pages/Home'
 import NotFound from './Pages/NotFound'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Nav, NavLink } from 'reactstrap'
+import { Nav, NavLink, NavItem } from 'reactstrap'
 
 import MockApts from './mockApartments'
 
@@ -29,26 +29,20 @@ export default class App extends Component {
     const {
       logged_in,
       sign_in_route,
-      sign_out_route
+      sign_up_route,
+      sign_out_route,
+      current_user
     } = this.props
     return (
       <Router>
 
-        <Header />
-
-        <h2>Welcome!</h2>
-
-        { logged_in &&
-          <div>
-            <a href={sign_out_route}>Sign Out</a>
-          </div>
-        }
-
-        { !logged_in &&
-          <div>
-            <a href={sign_in_route}>Sign In</a>
-          </div>
-        }
+        <Header 
+          logged_in={logged_in}
+          sign_in_route={sign_in_route}
+          sign_up_route={sign_up_route}
+          sign_out_route={sign_out_route}
+          current_user={current_user}
+        />
 
         <Switch>
           <Route exact path="/" component={ Home }/>

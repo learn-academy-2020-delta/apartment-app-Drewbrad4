@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
+
 export default class Header extends Component{
     render(){
         return(
-            <>
-                <h3>Footer</h3>
-            </>
+            <div id="footer">
+                <h5>Made by Drew</h5>
+            </div>
         )
     }
 }

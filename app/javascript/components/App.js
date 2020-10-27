@@ -12,9 +12,8 @@ import Home from './Pages/Home'
 import NotFound from './Pages/NotFound'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Nav, NavLink, NavItem } from 'reactstrap'
 
-import MockApts from './mockApartments'
+import MockApts from './mockApartments.js'
 
 
 export default class App extends Component {
@@ -46,7 +45,7 @@ export default class App extends Component {
 
         <Switch>
           <Route exact path="/" component={ Home }/>
-          <Route path="/apartmentindex" component={ ApartmentIndex } />
+          <Route path="/apartmentindex" render={ (props) => <ApartmentIndex apartments={this.state.apartments}/> } />
           <Route path="/apartmentshow/:id" component={ ApartmentShow } />
           <Route path="/apartmentnew" component={ ApartmentNew } />
           <Route path="/apartmentedit/:id" component={ ApartmentEdit } />

@@ -25,13 +25,26 @@ export default class App extends Component {
     }
   }
 
-createNewApartment = (newApartment) => {
-  console.log(newApartment);
-}
+  apartmentIndex = () => {
+    fetch("http://localhost:3000/apartments")
+    .then(response => {
+      return response.json()
+    })
+    .then(aptArr => {
+      this.setState({ apartments: aptArr})
+    })
+    .catch(errors => {
+      console.log("index errors:", errors);
+    })
+  }
 
-updateApartment = (apartment, id) => {
-  console.log("Apartment:", apartment, "Id:", id);
-}
+  createNewApartment = (newApartment) => {
+    console.log(newApartment);
+  }
+
+  updateApartment = (apartment, id) => {
+    console.log("Apartment:", apartment, "Id:", id);
+  }
 
 
   render() {

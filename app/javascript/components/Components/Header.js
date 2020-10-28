@@ -8,8 +8,7 @@ export default class Header extends Component{
             logged_in,
             sign_in_route,
             sign_up_route,
-            sign_out_route,
-            current_user
+            sign_out_route
         } = this.props
         return(
             <div id="header">

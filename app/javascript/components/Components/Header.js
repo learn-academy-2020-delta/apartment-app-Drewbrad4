@@ -24,6 +24,9 @@ export default class Header extends Component{
                     { logged_in &&
                         <>
                             <NavItem>
+                                <a href="/myapartmentindex">My Apartments</a>
+                            </NavItem>
+                            <NavItem>
                                 <a href="/apartmentnew">Create a New Listing</a>
                             </NavItem>
                             <NavItem>

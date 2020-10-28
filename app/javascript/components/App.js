@@ -14,15 +14,19 @@ import NotFound from './Pages/NotFound'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import MockApts from './mockApartments.js'
+// import MockApts from './mockApartments.js'
 
 
 export default class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      apartments: MockApts
+      apartments: []
     }
+  }
+
+  componentDidMount(){
+    this.apartmentIndex()
   }
 
   apartmentIndex = () => {
@@ -131,7 +135,7 @@ export default class App extends Component {
             /> 
           }
           
-          {/* Catch all Not Found */}
+          {/* Catch all - Not Found */}
 
           <Route component={ NotFound } />
         

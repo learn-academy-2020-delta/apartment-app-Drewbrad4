@@ -21,6 +21,7 @@ export default class Header extends Component{
                     <NavItem>
                         <a href="/apartmentindex">All Apartments</a>
                     </NavItem>
+                    
                     { logged_in &&
                         <>
                             <NavItem>
@@ -34,6 +35,7 @@ export default class Header extends Component{
                             </NavItem>
                         </>
                     }
+
                     { !logged_in &&
                         <>
                             <NavItem>

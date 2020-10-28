@@ -76,10 +76,12 @@ updateApartment = (apartment, id) => {
             <Route
               path="/apartmentnew"
               render={ (props) => {
-                <ApartmentNew
-                  createNewApartment={ this.createNewApartment }
-                  current_user={ current_user }
-                />
+                return(
+                  <ApartmentNew
+                    createNewApartment={ this.createNewApartment }
+                    current_user={ current_user }
+                  />
+                )
               } } 
             /> 
           }

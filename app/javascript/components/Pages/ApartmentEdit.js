@@ -37,7 +37,7 @@ export default class ApartmentEdit extends Component{
         let { form, success } = this.state
         return(
           <div className="form-page">
-            <h3 className="heading">Edit Apartment</h3>
+            <h3 className="heading">Edit an Apartment</h3>
             <div className="form">
               <Form>
                 

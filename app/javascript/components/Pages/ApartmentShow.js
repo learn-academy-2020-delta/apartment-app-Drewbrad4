@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 
 export default class ApartmentShow extends Component{
     render(){
@@ -15,6 +17,9 @@ export default class ApartmentShow extends Component{
                     <p className="apt-info">Bedrooms: {apartment.bedrooms}</p>
                     <p className="apt-info">Bathrooms: {apartment.bathrooms}</p>
                     <p className="apt-info">Pets: {apartment.pets}</p>
+                    <Link to="/apartmentindex" className="button">
+                        <Button className="info">Back to All Apartments</Button>
+                    </Link>
                 </div>
             </div>
         )

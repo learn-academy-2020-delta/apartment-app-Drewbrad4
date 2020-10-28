@@ -15,11 +15,12 @@ export default class MyApartmentIndex extends Component{
                                 <h3>{apartment.city}, {apartment.state}</h3>
                             </div>
                             <br/>
-                            <Link to={`/apartmentshow/${apartment.id}`} className="button">
-                                <Button className="info">More Info</Button>
-                            </Link>
                             <Link to={`/apartmentedit/${apartment.id}`} className="button">
                                 <Button className="info">Edit</Button>
+                            </Link>
+                            <br/>
+                            <Link to={`/apartmentshow/${apartment.id}`} className="button">
+                                <Button className="info">More Info</Button>
                             </Link>
                         </div>   
                     )

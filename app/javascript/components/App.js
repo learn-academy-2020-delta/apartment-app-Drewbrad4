@@ -14,24 +14,41 @@ import NotFound from './Pages/NotFound'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import MockApts from './mockApartments.js'
+// import MockApts from './mockApartments.js'
 
 
 export default class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      apartments: MockApts
+      apartments: []
     }
   }
 
-createNewApartment = (newApartment) => {
-  console.log(newApartment);
-}
+  componentDidMount(){
+    this.apartmentIndex()
+  }
 
-updateApartment = (apartment, id) => {
-  console.log("Apartment:", apartment, "Id:", id);
-}
+  apartmentIndex = () => {
+    fetch("http://localhost:3000/apartments")
+    .then(response => {
+      return response.json()
+    })
+    .then(aptArr => {
+      this.setState({ apartments: aptArr})
+    })
+    .catch(errors => {
+      console.log("index errors:", errors);
+    })
+  }
+
+  createNewApartment = (newApartment) => {
+    console.log(newApartment);
+  }
+
+  updateApartment = (apartment, id) => {
+    console.log("Apartment:", apartment, "Id:", id);
+  }
 
 
   render() {
@@ -76,10 +93,12 @@ updateApartment = (apartment, id) => {
             <Route
               path="/apartmentnew"
               render={ (props) => {
-                <ApartmentNew
-                  createNewApartment={ this.createNewApartment }
-                  current_user={ current_user }
-                />
+                return(
+                  <ApartmentNew
+                    createNewApartment={ this.createNewApartment }
+                    current_user={ current_user }
+                  />
+                )
               } } 
             /> 
           }
@@ -116,7 +135,7 @@ updateApartment = (apartment, id) => {
             /> 
           }
           
-          {/* Catch all Not Found */}
+          {/* Catch all - Not Found */}
 
           <Route component={ NotFound } />
         

@@ -168,6 +168,8 @@ a:hover {
 
 #footer {
     display: flex;
+    bottom: 0;
+    position: fixed;
 }
 
 .portfolio {

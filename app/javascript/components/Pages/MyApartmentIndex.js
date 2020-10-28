@@ -18,6 +18,9 @@ export default class MyApartmentIndex extends Component{
                             <Link to={`/apartmentshow/${apartment.id}`} className="button">
                                 <Button className="info">More Info</Button>
                             </Link>
+                            <Link to={`/apartmentedit/${apartment.id}`} className="button">
+                                <Button className="info">Edit</Button>
+                            </Link>
                         </div>   
                     )
                 })}

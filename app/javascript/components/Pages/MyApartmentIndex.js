@@ -22,6 +22,12 @@ export default class MyApartmentIndex extends Component{
                             <Link to={`/apartmentshow/${apartment.id}`} className="button">
                                 <Button className="info">More Info</Button>
                             </Link>
+                            <br/>
+                            
+                            <Link to="/myapartmentindex">
+                                <Button className="info" onClick={ () => {this.props.deleteApartment(apartment.id)} }>Delete Listing</Button>
+                            </Link>
+
                         </div>   
                     )
                 })}

@@ -8,6 +8,7 @@ import ApartmentIndex from './Pages/ApartmentIndex'
 import ApartmentNew from './Pages/ApartmentNew'
 import ApartmentShow from './Pages/ApartmentShow'
 import MyApartmentIndex from './Pages/MyApartmentIndex'
+import MyApartmentShow from './Pages/MyApartmentShow'
 import Home from './Pages/Home'
 import NotFound from './Pages/NotFound'
 
@@ -165,6 +166,20 @@ export default class App extends Component {
                 return(  
                   <MyApartmentIndex
                     apartments={ apartments }
+                    deleteApartment={ this.deleteApartment }
+                  />
+                )
+              } }
+            /> 
+          }
+
+          { logged_in &&
+            <Route
+              path="/myapartmentshow/:id"
+              render={ (props) => {
+                return(  
+                  <MyApartmentShow
+                    {...props}
                     deleteApartment={ this.deleteApartment }
                   />
                 )

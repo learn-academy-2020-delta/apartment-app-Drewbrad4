@@ -30,8 +30,7 @@ export default class ApartmentNew extends Component{
       
     handleSubmit = (e) => {
         e.preventDefault()
-        let { form } = this.state
-        this.props.createNewApartment(form)
+        this.props.createNewApartment(this.state.form)
         this.setState({ success: true })
     }  
 
@@ -90,6 +89,16 @@ export default class ApartmentNew extends Component{
                         name="email"
                         onChange={ this.handleChange }
                         value={ form.email }
+                        />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label>Price</Label>
+                        <Input
+                        type="text"
+                        name="price"
+                        onChange={ this.handleChange }
+                        value={ form.price }
                         />
                     </FormGroup>
                     

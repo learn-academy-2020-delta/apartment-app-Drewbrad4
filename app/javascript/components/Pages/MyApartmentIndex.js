@@ -15,19 +15,11 @@ export default class MyApartmentIndex extends Component{
                                 <h3>{apartment.city}, {apartment.state}</h3>
                             </div>
                             <br/>
-                            <Link to={`/apartmentedit/${apartment.id}`} className="button">
-                                <Button className="info">Edit</Button>
-                            </Link>
-                            <br/>
-                            <Link to={`/apartmentshow/${apartment.id}`} className="button">
+                            
+                            <Link to={`/myapartmentshow/${apartment.id}`} className="button">
                                 <Button className="info">More Info</Button>
                             </Link>
-                            <br/>
-                            
-                            <Link to="/myapartmentindex">
-                                <Button className="info" onClick={ () => {this.props.deleteApartment(apartment.id)} }>Delete Listing</Button>
-                            </Link>
-
+                    
                         </div>   
                     )
                 })}

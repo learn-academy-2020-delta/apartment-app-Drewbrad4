@@ -4,6 +4,11 @@ class ApartmentsController < ApplicationController
         render json: apartments
     end
 
+    def show
+      apartment = Apartment.find(params[:id])
+      render json: apartment
+    end
+
     def create
         apartment = Apartment.create(apartment_params)
         if apartment.valid?

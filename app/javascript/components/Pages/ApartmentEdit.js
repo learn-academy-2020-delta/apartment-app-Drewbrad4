@@ -90,6 +90,16 @@ export default class ApartmentEdit extends Component{
                     value={ form.email }
                   />
                 </FormGroup>
+
+                <FormGroup>
+                        <Label>Price</Label>
+                        <Input
+                        type="text"
+                        name="price"
+                        onChange={ this.handleChange }
+                        value={ form.price }
+                        />
+                </FormGroup>
                 
                 <FormGroup>
                   <Label>Number of Bedrooms</Label>

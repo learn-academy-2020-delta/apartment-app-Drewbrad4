@@ -1,6 +1,18 @@
-mockApts = [
+user = [
     {
-        id: 1,
+        email: "test@testing.com",
+        password: "test123",
+        password_confirmation: "test123"
+    }
+]
+
+user.each do |attributes|
+    User.create attributes
+    puts "creating #{attributes}"
+end
+
+apartments = [
+    {
         street: "221B Baker St.",
         city: "London",
         state: "UK",
@@ -13,7 +25,6 @@ mockApts = [
         user_id: 1
     },
     {
-        id: 2,
         street: "742 Evergreen Terrace",
         city: "Springfield",
         state: "US",
@@ -26,7 +37,6 @@ mockApts = [
         user_id: 2
     },
     {
-        id: 3,
         street: "1640 Riverside Drive",
         city: "Hill Valley",
         state: "California",
@@ -40,6 +50,9 @@ mockApts = [
     }
 ]
 
-mockApts.each do |attributes|
-    Apartment.create attributes
+test_user = User.first
+
+apartments.each do |attributes|
+    test_user.apartments.create attributes
+    puts "creating #{attributes}"
 end

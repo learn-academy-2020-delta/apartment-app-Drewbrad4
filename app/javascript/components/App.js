@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import PropTypes from "prop-types"
 
 import Header from './Components/Header'
 import Footer from './Components/Footer'
@@ -30,7 +29,7 @@ export default class App extends Component {
   }
 
   apartmentIndex = () => {
-    fetch("http://localhost:3000/apartments")
+    fetch("/apartments")
     .then(response => {
       return response.json()
     })
@@ -42,8 +41,26 @@ export default class App extends Component {
     })
   }
 
-  createNewApartment = (newApartment) => {
-    console.log(newApartment);
+  createNewApartment = (apartment) => {
+    console.log("apartment:", apartment);
+    return fetch("/apartments", {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => {
+      if(response.status === 200){
+      this.apartmentIndex()
+      } else if(response.status === 422){
+        alert("Invalid Submission")
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("create errors:", errors);
+    })
   }
 
   updateApartment = (apartment, id) => {
@@ -72,20 +89,26 @@ export default class App extends Component {
         />
 
         <Switch>
+
+          {/* Unprotected Routes */}
           
           <Route exact path="/" component={ Home }/>
           
-          <Route path="/apartmentindex" render={ (props) => <ApartmentIndex apartments={this.state.apartments}/> } />
+          <Route 
+            path="/apartmentindex" 
+            render={ (props) => <ApartmentIndex apartments={this.state.apartments}/> } 
+          />
           
           <Route 
-          path="/apartmentshow/:id" 
-          render={ (props) => { 
-            let id = props.match.params.id 
-            let apartment = this.state.apartments.find(apartment => apartment.id === parseInt(id))
-            return(
-              <ApartmentShow apartment={apartment}/>
-            )
-          } } />
+            path="/apartmentshow/:id" 
+            render={ (props) => { 
+              let id = props.match.params.id 
+              let apartment = this.state.apartments.find(apartment => apartment.id === parseInt(id))
+              return(
+                <ApartmentShow apartment={apartment}/>
+              )
+            } } 
+          />
           
           {/* Protected Routes */}
 

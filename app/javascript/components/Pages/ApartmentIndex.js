@@ -4,7 +4,6 @@ import { Button } from 'reactstrap'
 
 export default class ApartmentIndex extends Component{
     render(){
-        console.log(this.props.apartments);
         return(
             <div className="index">
                 <h3 className="heading">All Apartments</h3>

@@ -42,7 +42,6 @@ export default class App extends Component {
   }
 
   createNewApartment = (apartment) => {
-    console.log("apartment:", apartment);
     return fetch("/apartments", {
       body: JSON.stringify(apartment),
       headers: {
@@ -64,9 +63,40 @@ export default class App extends Component {
   }
 
   updateApartment = (apartment, id) => {
-    console.log("Apartment:", apartment, "Id:", id);
+    return fetch(`/apartments/${id}`, {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => {
+      if(response.status === 200){
+        this.apartmentIndex()
+      }
+      return response
+    })
+    .catch(errors => {
+      console.log("edit errors", errors)
+    })
   }
 
+  deleteApartment = (id) => {
+    return fetch(`/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => {
+      alert("Remove this listing?")
+      this.apartmentIndex()
+      return response
+    })
+    .catch(errors => {
+      console.log("delete errors:", errors)
+    })
+  }
 
   render() {
     const {
@@ -135,6 +165,7 @@ export default class App extends Component {
                 return(  
                   <MyApartmentIndex
                     apartments={ apartments }
+                    deleteApartment={ this.deleteApartment }
                   />
                 )
               } }

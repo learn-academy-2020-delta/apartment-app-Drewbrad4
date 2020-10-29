@@ -47,12 +47,6 @@ export default class MyApartmentShow extends Component{
                         <p className="apt-info">Bathrooms: {ownedApartment.bathrooms}</p>
                         <p className="apt-info">Pets: {ownedApartment.pets}</p>
                     
-                        <Link to="/apartmentindex" className="button">
-                            <Button className="info">Back to All Apartments</Button>
-                        </Link>
-                        
-                        <br/>
-
                         <Link to={`/apartmentedit/${ownedApartment.id}`} className="button">
                             <Button className="info">Edit</Button>
                         </Link>
@@ -61,6 +55,12 @@ export default class MyApartmentShow extends Component{
                                 
                         <Link to="/myapartmentindex">
                             <Button className="info" onClick={ () => {this.props.deleteApartment(ownedApartment.id)} }>Delete Listing</Button>
+                        </Link>
+
+                        <br/>
+
+                        <Link to="/myapartmentindex" className="button">
+                            <Button className="info">Back to My Apartments</Button>
                         </Link>
                     </div>
                 }
